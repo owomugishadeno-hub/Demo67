@@ -1,639 +1,1081 @@
-<?php
-$current_page = basename($_SERVER['PHP_SELF']);
-$whatsapp_num = "256777990562";
-$whatsapp_link = "https://wa.me/" . $whatsapp_num . "?text=" . urlencode("Hello! I would like to inquire about a luxury expedition with REN Gorilla Expeditions.");
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REN Gorilla Expeditions | Luxury African Safaris</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for Luxury Typography -->
+    <title>REN GORILLA EXPEDITIONS | Purposeful Luxury African Safaris</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <header class="site-header">
-        <div class="header-container">
-            <a href="index.php" class="brand-logo" aria-label="REN Gorilla Expeditions Homepage">
-                <span class="logo-ren">REN</span>
-                <span class="logo-sub">GORILLA EXPEDITIONS</span>
-            </a>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#090d0a',
+                        surface: '#121813',
+                        surfaceLight: '#1b241d',
+                        gold: {
+                            DEFAULT: '#d4af37',
+                            light: '#f3e5ab',
+                            dark: '#aa8822',
+                            glow: 'rgba(212, 175, 55, 0.25)'
+                        },
+                        savanna: '#2c3b2d'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #090d0a;
+            color: #e5e7eb;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Focus rings for WCAG AA compliance */
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+            outline: 2px solid #d4af37 !important;
+            outline-offset: 3px !important;
+        }
+
+        /* Gold gradient text helper */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa8822 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gold-border-glow:hover {
+            border-color: rgba(212, 175, 55, 0.8);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Glassmorphism panel */
+        .glass-panel {
+            background: rgba(18, 24, 19, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Floating pulse animation */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-pulse {
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232e25;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+
+        /* Image Zoom on hover */
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom-container img {
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .img-zoom-container:hover img {
+            transform: scale(1.06);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-obsidian">
+
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-gold focus:text-obsidian font-bold">Skip to main content</a>
+
+    <header class="sticky top-0 z-40 w-full glass-panel border-b border-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <nav class="main-nav" aria-label="Main Navigation">
-                <ul>
-                    <li><a href="index.php" class="<?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">Home</a></li>
-                    <li><a href="about.php" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">About REN</a></li>
-                    <li><a href="expeditions.php" class="<?php echo ($current_page == 'expeditions.php') ? 'active' : ''; ?>">Expeditions</a></li>
-                    <li><a href="contact.php" class="<?php echo ($current_page == 'contact.php') ? 'active' : ''; ?>">Contact</a></li>
-                </ul>
+            <!-- Brand Logo -->
+            <a href="#home" class="flex flex-col group" aria-label="REN Gorilla Expeditions Homepage">
+                <span class="font-heading text-2xl font-bold tracking-[0.25em] text-gold group-hover:text-gold-light transition-colors">REN</span>
+                <span class="text-[0.6rem] font-medium tracking-[0.35em] text-gray-300 -mt-1 group-hover:text-white transition-colors">GORILLA EXPEDITIONS</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+                <a href="#home" class="text-xs uppercase tracking-[0.2em] text-gray-300 hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">Home</a>
+                <a href="#about" class="text-xs uppercase tracking-[0.2em] text-gray-300 hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">About REN</a>
+                <a href="#expeditions" class="text-xs uppercase tracking-[0.2em] text-gray-300 hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">Expeditions</a>
+                <a href="#wildlife" class="text-xs uppercase tracking-[0.2em] text-gray-300 hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">Wildlife</a>
+                <a href="#reserve" class="text-xs uppercase tracking-[0.2em] text-gray-300 hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">Reserve</a>
             </nav>
 
-            <a href="<?php echo $whatsapp_link; ?>" class="btn-whatsapp-header" target="_blank" rel="noopener noreferrer" aria-label="Book via WhatsApp">
-                Book on WhatsApp
+            <!-- Direct WhatsApp CTA Button -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="https://wa.me/256777990562?text=Hello!%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20safari%20expedition%20with%20REN." 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-gradient-to-r from-gold-dark via-gold to-gold-light text-obsidian text-xs font-bold uppercase tracking-widest hover:brightness-110 transition-all shadow-lg shadow-gold/10">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>+256 777990562</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" 
+                    type="button" 
+                    class="md:hidden text-gold hover:text-white focus:outline-none p-2" 
+                    aria-label="Toggle Navigation Menu" 
+                    aria-expanded="false">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-gold/20 px-6 py-6 space-y-4">
+            <a href="#home" class="mobile-link block text-sm uppercase tracking-widest text-gray-200 hover:text-gold py-2">Home</a>
+            <a href="#about" class="mobile-link block text-sm uppercase tracking-widest text-gray-200 hover:text-gold py-2">About REN</a>
+            <a href="#expeditions" class="mobile-link block text-sm uppercase tracking-widest text-gray-200 hover:text-gold py-2">Expeditions</a>
+            <a href="#wildlife" class="mobile-link block text-sm uppercase tracking-widest text-gray-200 hover:text-gold py-2">Wildlife Gallery</a>
+            <a href="#reserve" class="mobile-link block text-sm uppercase tracking-widest text-gray-200 hover:text-gold py-2">Reserve Journey</a>
+            <a href="https://wa.me/256777990562" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="flex items-center justify-center gap-2 w-full py-3 rounded bg-gold text-obsidian font-bold uppercase tracking-widest text-xs mt-4">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>WhatsApp: +256 777990562</span>
             </a>
         </div>
     </header>
+
     <main id="main-content">
-</main>
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <span class="logo-ren">REN</span>
-                <span class="logo-sub">GORILLA EXPEDITIONS</span>
-                <p>Purposeful journeys through Africa's extraordinary wilderness. Built around Respect, Exploration, and Nature.</p>
-            </div>
-            
-            <div class="footer-links">
-                <h2>Navigation</h2>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="expeditions.php">Curated Expeditions</a></li>
-                    <li><a href="contact.php">Contact & Reservations</a></li>
-                </ul>
+
+        <section id="home" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+            <!-- Background Image with Gradient Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2000&q=85" 
+                     alt="Majestic Mountain Gorilla in Bwindi Impenetrable Forest" 
+                     class="w-full h-full object-cover object-center scale-105 transform animate-pulse duration-[10000ms]">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-obsidian/40"></div>
+                <div class="absolute inset-0 bg-black/30"></div>
             </div>
 
-            <div class="footer-contact">
-                <h2>Direct Inquiries</h2>
-                <p>Kampala & Bwindi, Uganda</p>
-                <p>Phone / WhatsApp: <a href="https://wa.me/256777990562" class="footer-phone">+256 777 990 562</a></p>
-                <p>Email: reservations@rengorillaexpeditions.com</p>
+            <!-- Hero Content -->
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+                <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-panel border border-gold/30 mb-8 animate-fade-in">
+                    <span class="w-2 h-2 rounded-full bg-gold animate-ping"></span>
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold-light font-medium">Bespoke African Wilderness Journeys</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    <span class="block">REN GORILLA</span>
+                    <span class="gold-gradient-text">EXPEDITIONS</span>
+                </h1>
+
+                <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 font-light leading-relaxed mb-10 tracking-wide">
+                    Purposeful journeys through Africa's extraordinary wilderness. Grounded in <strong class="text-gold font-medium">Respect</strong>, driven by <strong class="text-gold font-medium">Exploration</strong>, and devoted to <strong class="text-gold font-medium">Nature</strong>.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                    <a href="#expeditions" 
+                       class="w-full sm:w-auto px-8 py-4 rounded-sm bg-gold text-obsidian font-bold text-xs uppercase tracking-[0.2em] hover:bg-gold-light transition-all transform hover:-translate-y-0.5 shadow-xl shadow-gold/20">
+                        Explore Expeditions
+                    </a>
+                    <a href="https://wa.me/256777990562?text=Hello!%20I%20want%20to%20plan%20a%20luxury%20gorilla%20expedition." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="w-full sm:w-auto px-8 py-4 rounded-sm glass-panel border border-gold/40 text-gold hover:text-white hover:border-gold font-bold text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Direct Inquiry</span>
+                    </a>
+                </div>
+
+                <!-- Feature Highlights Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t border-white/10 text-center">
+                    <div>
+                        <div class="text-gold font-heading text-2xl font-bold">100%</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Guaranteed Trek Permits</div>
+                    </div>
+                    <div>
+                        <div class="text-gold font-heading text-2xl font-bold">5-Star</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Eco-Luxury Lodges</div>
+                    </div>
+                    <div>
+                        <div class="text-gold font-heading text-2xl font-bold">Private</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">4x4 Safari Vehicles</div>
+                    </div>
+                    <div>
+                        <div class="text-gold font-heading text-2xl font-bold">Expert</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Conservation Trackers</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <?php echo date("Y"); ?> REN Gorilla Expeditions. All Rights Reserved.</p>
+        </section>
+
+        <section id="about" class="py-24 bg-surface relative overflow-hidden border-t border-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Our Philosophical Essence</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white mt-3 mb-6">The Heart of <span class="gold-gradient-text">REN</span></h2>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        REN is the distinctive identity at the core of everything we build. It provides a simple but profound foundation: respect the places and people we encounter, explore extraordinary landscapes and wildlife, and protect the natural world that makes every expedition possible.
+                    </p>
+                </div>
+
+                <!-- R - E - N Value Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                    
+                    <!-- R: Respect -->
+                    <div class="gold-border-glow bg-surfaceLight p-8 rounded-sm relative group">
+                        <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-obsidian transition-colors duration-300">
+                            <span class="font-heading text-2xl font-black">R</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 tracking-wide">RESPECT</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Respecting local indigenous communities, cultural heritage, and pristine ecological sanctuaries. We operate with strict ethical wildlife practices and support community-led conservation funds across East Africa.
+                        </p>
+                        <div class="text-xs text-gold uppercase tracking-widest font-semibold flex items-center gap-2">
+                            <span>Ethical Standards</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </div>
+
+                    <!-- E: Explore -->
+                    <div class="gold-border-glow bg-surfaceLight p-8 rounded-sm relative group">
+                        <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-obsidian transition-colors duration-300">
+                            <span class="font-heading text-2xl font-black">E</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 tracking-wide">EXPLORE</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Exploring breathtaking landscapes, untamed savannas, and ancient rainforests. We curate deep journeys into hidden wilderness regions far beyond conventional tourist paths.
+                        </p>
+                        <div class="text-xs text-gold uppercase tracking-widest font-semibold flex items-center gap-2">
+                            <span>Uncharted Travel</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </div>
+
+                    <!-- N: Nature -->
+                    <div class="gold-border-glow bg-surfaceLight p-8 rounded-sm relative group">
+                        <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-obsidian transition-colors duration-300">
+                            <span class="font-heading text-2xl font-black">N</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 tracking-wide">NATURE</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Protecting the irreplaceable natural habitats that sustain wild populations. Every expedition directly contributes to park ranger support, rewilding projects, and habitat preservation.
+                        </p>
+                        <div class="text-xs text-gold uppercase tracking-widest font-semibold flex items-center gap-2">
+                            <span>Active Conservation</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Deep Story Breakdown: Gorilla & Expeditions -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center glass-panel p-8 sm:p-12 rounded-sm border border-gold/20">
+                    <div class="space-y-6">
+                        <div class="inline-block px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs uppercase tracking-widest font-semibold">
+                            Conservation & Discovery
+                        </div>
+                        <h3 class="text-2xl sm:text-4xl font-bold text-white leading-snug">
+                            More Than Travel. <br><span class="gold-gradient-text">A Purposeful Journey.</span>
+                        </h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            <strong class="text-white">Gorilla</strong> represents our company's profound connection to Uganda’s world-renowned mountain gorilla sanctuaries in Bwindi Impenetrable National Park and Mgahinga Gorilla National Park. Standing face-to-face with a silverback gorilla in its primordial mountain forest is a life-changing encounter.
+                        </p>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            <strong class="text-white">Expeditions</strong> communicates much more than ordinary leisure travel. It signifies carefully planned luxury experiences, purpose-driven itineraries, effortless logistics, and rare moments of wonder.
+                        </p>
+                        <div class="pt-4 flex items-center gap-6">
+                            <a href="#reserve" class="px-6 py-3 bg-gold text-obsidian text-xs font-bold uppercase tracking-widest hover:bg-gold-light transition-colors">
+                                Book Your Custom Expedition
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative img-zoom-container rounded-sm overflow-hidden border border-gold/20 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Luxury African Safari Jeep overlooking savanna landscape" 
+                             class="w-full h-[400px] object-cover">
+                        <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-obsidian via-obsidian/70 to-transparent">
+                            <div class="text-gold font-heading font-bold text-sm">Bespoke 4x4 Land Cruisers</div>
+                            <div class="text-xs text-gray-300">Outfitted with panoramic pop-up roofs, onboard fridges & power hubs.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="expeditions" class="py-24 bg-obsidian relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Curated African Itineraries</span>
+                        <h2 class="text-3xl sm:text-5xl font-bold text-white mt-2">Signature <span class="gold-gradient-text">Expeditions</span></h2>
+                    </div>
+                    
+                    <!-- Expedition Category Filters -->
+                    <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="expedition-filters" role="tablist" aria-label="Expedition Categories">
+                        <button type="button" data-filter="all" class="filter-btn active px-4 py-2 text-xs uppercase tracking-wider rounded-sm bg-gold text-obsidian font-bold transition-all">All Expeditions</button>
+                        <button type="button" data-filter="gorilla" class="filter-btn px-4 py-2 text-xs uppercase tracking-wider rounded-sm glass-panel text-gray-300 hover:text-gold border border-gold/20 transition-all">Gorillas</button>
+                        <button type="button" data-filter="savanna" class="filter-btn px-4 py-2 text-xs uppercase tracking-wider rounded-sm glass-panel text-gray-300 hover:text-gold border border-gold/20 transition-all">Savanna & Lions</button>
+                        <button type="button" data-filter="grand" class="filter-btn px-4 py-2 text-xs uppercase tracking-wider rounded-sm glass-panel text-gray-300 hover:text-gold border border-gold/20 transition-all">Grand Circuits</button>
+                    </div>
+                </div>
+
+                <!-- Expedition Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="expeditions-grid">
+                    
+                    <!-- Expedition 1: Gorilla Trekking -->
+                    <article class="expedition-card gold-border-glow bg-surface rounded-sm overflow-hidden flex flex-col justify-between" data-category="gorilla">
+                        <div>
+                            <div class="relative img-zoom-container h-64">
+                                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80" 
+                                     alt="Mountain Gorilla in Bwindi Rainforest" 
+                                     class="w-full h-full object-cover">
+                                <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold px-3 py-1 tracking-widest">
+                                    5 Days / 4 Nights
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <div class="text-xs text-gold uppercase tracking-widest font-semibold mb-1">Bwindi Impenetrable Forest</div>
+                                <h3 class="text-xl font-bold text-white mb-3">Gorilla Habituation Luxury Odyssey</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                                    Exclusive permit access allowing up to 4 hours with mountain gorilla families during habituation in pristine Bwindi forest.
+                                </p>
+                                <ul class="text-xs text-gray-300 space-y-2 border-t border-white/10 pt-4 mb-4">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Fly-in charter flights included</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Luxury sanctuary lodge stay</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Private porter & tracker service</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button type="button" 
+                                    onclick="openExpeditionModal('gorilla-odyssey')"
+                                    class="w-full py-3 bg-surfaceLight hover:bg-gold hover:text-obsidian border border-gold/30 text-gold font-bold text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
+                                <span>View Itinerary</span>
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Expedition 2: Big Cats & Savanna -->
+                    <article class="expedition-card gold-border-glow bg-surface rounded-sm overflow-hidden flex flex-col justify-between" data-category="savanna">
+                        <div>
+                            <div class="relative img-zoom-container h-64">
+                                <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=800&q=80" 
+                                     alt="African Lion on Savanna" 
+                                     class="w-full h-full object-cover">
+                                <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold px-3 py-1 tracking-widest">
+                                    7 Days / 6 Nights
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <div class="text-xs text-gold uppercase tracking-widest font-semibold mb-1">Queen Elizabeth NP & Ishasha</div>
+                                <h3 class="text-xl font-bold text-white mb-3">Tree-Climbing Lions & Predators</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                                    Track rare tree-climbing lions in Ishasha and enjoy private Kazinga Channel luxury boat cruises amidst leopards and hippos.
+                                </p>
+                                <ul class="text-xs text-gray-300 space-y-2 border-t border-white/10 pt-4 mb-4">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Private Kazinga luxury boat VIP deck</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Night predator tracking game drives</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Wilderness tented suite camps</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button type="button" 
+                                    onclick="openExpeditionModal('lion-safari')"
+                                    class="w-full py-3 bg-surfaceLight hover:bg-gold hover:text-obsidian border border-gold/30 text-gold font-bold text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
+                                <span>View Itinerary</span>
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Expedition 3: Gentle Giants Safari -->
+                    <article class="expedition-card gold-border-glow bg-surface rounded-sm overflow-hidden flex flex-col justify-between" data-category="savanna">
+                        <div>
+                            <div class="relative img-zoom-container h-64">
+                                <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80" 
+                                     alt="African Elephants in Murchison Falls" 
+                                     class="w-full h-full object-cover">
+                                <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold px-3 py-1 tracking-widest">
+                                    6 Days / 5 Nights
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <div class="text-xs text-gold uppercase tracking-widest font-semibold mb-1">Murchison Falls National Park</div>
+                                <h3 class="text-xl font-bold text-white mb-3">Mighty Elephants & Nile Cascades</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                                    Experience thousands of elephants migrating across the Nile River banks with private helicopter flyovers of Murchison Falls.
+                                </p>
+                                <ul class="text-xs text-gray-300 space-y-2 border-t border-white/10 pt-4 mb-4">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Nile River private charter yacht</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Top of Murchison Falls sunset lounge</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Rhinos tracking at Ziwa Sanctuary</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button type="button" 
+                                    onclick="openExpeditionModal('elephant-safari')"
+                                    class="w-full py-3 bg-surfaceLight hover:bg-gold hover:text-obsidian border border-gold/30 text-gold font-bold text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
+                                <span>View Itinerary</span>
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Expedition 4: The Great Circuit -->
+                    <article class="expedition-card gold-border-glow bg-surface rounded-sm overflow-hidden flex flex-col justify-between" data-category="grand">
+                        <div>
+                            <div class="relative img-zoom-container h-64">
+                                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" 
+                                     alt="African Sunset Savanna Horizon" 
+                                     class="w-full h-full object-cover">
+                                <span class="absolute top-4 left-4 bg-obsidian/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold px-3 py-1 tracking-widest">
+                                    12 Days / 11 Nights
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <div class="text-xs text-gold uppercase tracking-widest font-semibold mb-1">Uganda Comprehensive Circuit</div>
+                                <h3 class="text-xl font-bold text-white mb-3">The Great African Ultra-Luxury Circuit</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                                    The definitive flagship safari: Mountain Gorillas, Chimpanzees, Big Cats, Elephants, and Nile waters with private bush planes.
+                                </p>
+                                <ul class="text-xs text-gray-300 space-y-2 border-t border-white/10 pt-4 mb-4">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> All domestic bush flights included</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Chimpanzee habituation in Kibale</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Personal wildlife butler & photographer</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button type="button" 
+                                    onclick="openExpeditionModal('grand-circuit')"
+                                    class="w-full py-3 bg-surfaceLight hover:bg-gold hover:text-obsidian border border-gold/30 text-gold font-bold text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
+                                <span>View Itinerary</span>
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="wildlife" class="py-24 bg-surface border-t border-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Encounters of Extraordinary Beauty</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white mt-2">Wildlife <span class="gold-gradient-text">Showcase</span></h2>
+                    <p class="text-gray-400 text-sm mt-4">Click any photo to launch the high-resolution lightbox gallery.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    
+                    <!-- Gallery Item 1 -->
+                    <div class="relative group cursor-pointer img-zoom-container rounded-sm overflow-hidden h-64 gold-border-glow"
+                         onclick="openGalleryModal('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=90', 'Silverback Mountain Gorilla in Bwindi Forest')">
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=600&q=80" alt="Mountain Gorilla" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div>
+                                <span class="text-gold text-xs font-bold uppercase tracking-widest block">Mountain Gorilla</span>
+                                <span class="text-gray-300 text-[10px]">Bwindi Impenetrable NP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 2 -->
+                    <div class="relative group cursor-pointer img-zoom-container rounded-sm overflow-hidden h-64 gold-border-glow"
+                         onclick="openGalleryModal('https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1600&q=90', 'Male African Lion on Savanna Lookout')">
+                        <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=600&q=80" alt="African Lion" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div>
+                                <span class="text-gold text-xs font-bold uppercase tracking-widest block">Savanna Lion</span>
+                                <span class="text-gray-300 text-[10px]">Queen Elizabeth NP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 3 -->
+                    <div class="relative group cursor-pointer img-zoom-container rounded-sm overflow-hidden h-64 gold-border-glow"
+                         onclick="openGalleryModal('https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1600&q=90', 'Wild Elephant Herd at Sunset Riverbank')">
+                        <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=600&q=80" alt="African Elephants" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div>
+                                <span class="text-gold text-xs font-bold uppercase tracking-widest block">African Elephants</span>
+                                <span class="text-gray-300 text-[10px]">Murchison Falls NP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 4 -->
+                    <div class="relative group cursor-pointer img-zoom-container rounded-sm overflow-hidden h-64 gold-border-glow"
+                         onclick="openGalleryModal('https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=1600&q=90', 'Leopard Resting in Acacia Tree Branch')">
+                        <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=600&q=80" alt="Leopard" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div>
+                                <span class="text-gold text-xs font-bold uppercase tracking-widest block">African Leopard</span>
+                                <span class="text-gray-300 text-[10px]">Kidepo Valley NP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 5 -->
+                    <div class="relative group cursor-pointer img-zoom-container rounded-sm overflow-hidden h-64 gold-border-glow"
+                         onclick="openGalleryModal('https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1600&q=90', 'Chimpanzee in Kibale Forest Canopy')">
+                        <img src="https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=600&q=80" alt="Chimpanzee" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div>
+                                <span class="text-gold text-xs font-bold uppercase tracking-widest block">Chimpanzee</span>
+                                <span class="text-gray-300 text-[10px]">Kibale Forest</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 6 -->
+                    <div class="relative group cursor-pointer img-zoom-container rounded-sm overflow-hidden h-64 gold-border-glow"
+                         onclick="openGalleryModal('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=90', 'Golden Savanna Sunset over Acacia Trees')">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="Savanna Landscape" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div>
+                                <span class="text-gold text-xs font-bold uppercase tracking-widest block">Savanna Twilight</span>
+                                <span class="text-gray-300 text-[10px]">Lake Mburo NP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 7 -->
+                    <div class="relative group cursor-pointer img-zoom-container rounded-sm overflow-hidden h-64 gold-border-glow"
+                         onclick="openGalleryModal('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1600&q=90', 'Luxury Eco Safari Lodge Sanctuary View')">
+                        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=600&q=80" alt="Luxury Lodge" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div>
+                                <span class="text-gold text-xs font-bold uppercase tracking-widest block">Sanctuary Lodging</span>
+                                <span class="text-gray-300 text-[10px]">Bwindi Luxury Camp</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 8 -->
+                    <div class="relative group cursor-pointer img-zoom-container rounded-sm overflow-hidden h-64 gold-border-glow"
+                         onclick="openGalleryModal('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=90', 'Infant Gorilla with Mother')">
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=600&q=80" alt="Baby Gorilla" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <div>
+                                <span class="text-gold text-xs font-bold uppercase tracking-widest block">Gorilla Family</span>
+                                <span class="text-gray-300 text-[10px]">Mgahinga National Park</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="reserve" class="py-24 bg-obsidian relative border-t border-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Reservation Form Left Header -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Personalized Itinerary Design</span>
+                        <h2 class="text-3xl sm:text-5xl font-bold text-white leading-tight">
+                            Reserve Your <br><span class="gold-gradient-text">Expedition</span>
+                        </h2>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Fill out your journey preferences below. As you enter your details, our interactive engine builds a custom reservation query formatted directly for instant review on WhatsApp with our head concierge.
+                        </p>
+
+                        <div class="glass-panel p-6 rounded-sm space-y-4 border border-gold/20">
+                            <h3 class="text-gold font-heading font-bold text-base">Concierge Desk Direct Contacts</h3>
+                            <div class="space-y-3 text-xs text-gray-300">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-brands fa-whatsapp text-gold text-lg w-5"></i>
+                                    <span>WhatsApp / Calling: <strong class="text-white">+256 777990562</strong></span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-location-dot text-gold text-lg w-5"></i>
+                                    <span>Headquarters: Kampala & Bwindi, Uganda</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-envelope text-gold text-lg w-5"></i>
+                                    <span>Direct Email: concierge@rengorillaexpeditions.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form & WhatsApp Generator -->
+                    <div class="lg:col-span-7 glass-panel p-8 sm:p-10 rounded-sm gold-border-glow">
+                        <form id="reservation-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="guest-name" class="block text-xs uppercase tracking-widest text-gold font-semibold mb-2">Full Name *</label>
+                                    <input type="text" id="guest-name" required placeholder="Lord / Lady / Dr. / Mr. / Ms."
+                                           class="w-full bg-surfaceLight border border-gold/30 rounded-sm px-4 py-3 text-sm text-white focus:border-gold focus:outline-none">
+                                </div>
+                                <div>
+                                    <label for="guest-email" class="block text-xs uppercase tracking-widest text-gold font-semibold mb-2">Email Address *</label>
+                                    <input type="email" id="guest-email" required placeholder="concierge@domain.com"
+                                           class="w-full bg-surfaceLight border border-gold/30 rounded-sm px-4 py-3 text-sm text-white focus:border-gold focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="expedition-select" class="block text-xs uppercase tracking-widest text-gold font-semibold mb-2">Expedition Choice *</label>
+                                    <select id="expedition-select" required class="w-full bg-surfaceLight border border-gold/30 rounded-sm px-4 py-3 text-sm text-white focus:border-gold focus:outline-none">
+                                        <option value="Mountain Gorilla Habituation Luxury Trek">Mountain Gorilla Habituation Odyssey</option>
+                                        <option value="Tree-Climbing Lions & Savanna Predators">Tree-Climbing Lions & Savanna Safari</option>
+                                        <option value="Gentle Giants Elephant & Nile Safari">Gentle Giants & Nile Cascades</option>
+                                        <option value="The Great African Ultra-Luxury Circuit">The Great African 12-Day Circuit</option>
+                                        <option value="Custom Bespoke Itinerary">Tailor-Made Tailored Expedition</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="guest-count" class="block text-xs uppercase tracking-widest text-gold font-semibold mb-2">Number of Travelers</label>
+                                    <select id="guest-count" class="w-full bg-surfaceLight border border-gold/30 rounded-sm px-4 py-3 text-sm text-white focus:border-gold focus:outline-none">
+                                        <option value="1 Solo Traveler">1 Traveler (Solo Luxury)</option>
+                                        <option value="2 Guests (Couples/Private)">2 Guests (Private Duo)</option>
+                                        <option value="3-4 Guests (Small Group)">3-4 Guests (Private Small Group)</option>
+                                        <option value="5+ Guests (VIP Party)">5+ Guests (VIP Private Charter)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="travel-date" class="block text-xs uppercase tracking-widest text-gold font-semibold mb-2">Target Travel Date</label>
+                                    <input type="date" id="travel-date" class="w-full bg-surfaceLight border border-gold/30 rounded-sm px-4 py-3 text-sm text-white focus:border-gold focus:outline-none">
+                                </div>
+                                <div>
+                                    <label for="luxury-level" class="block text-xs uppercase tracking-widest text-gold font-semibold mb-2">Preferred Accommodation</label>
+                                    <select id="luxury-level" class="w-full bg-surfaceLight border border-gold/30 rounded-sm px-4 py-3 text-sm text-white focus:border-gold focus:outline-none">
+                                        <option value="Ultra-Luxury 5-Star Eco Lodges">Ultra-Luxury 5-Star Lodges & Sanctuary Camps</option>
+                                        <option value="Bespoke Tented Wilderness Suites">Bespoke Tented Wilderness Suites</option>
+                                        <option value="Exclusive Private Villa Charters">Exclusive Private Villa Sanctuary</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="special-requests" class="block text-xs uppercase tracking-widest text-gold font-semibold mb-2">Special Requests / Preferences</label>
+                                <textarea id="special-requests" rows="3" placeholder="Helicopter charters, dietary requirements, gorilla permit preferences..." 
+                                          class="w-full bg-surfaceLight border border-gold/30 rounded-sm px-4 py-3 text-sm text-white focus:border-gold focus:outline-none"></textarea>
+                            </div>
+
+                            <!-- Dynamic WhatsApp Preview Trigger -->
+                            <div class="p-4 bg-obsidian border border-gold/20 rounded-sm">
+                                <div class="text-[11px] text-gray-400 uppercase tracking-widest mb-1">WhatsApp Live Dispatch Preview</div>
+                                <div id="whatsapp-preview-text" class="text-xs text-gold font-mono truncate">
+                                    Click "Send Inquiry to WhatsApp" to dispatch directly.
+                                </div>
+                            </div>
+
+                            <button type="submit" 
+                                    class="w-full py-4 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-obsidian font-bold text-xs uppercase tracking-[0.2em] hover:brightness-110 transition-all flex items-center justify-center gap-3 shadow-lg shadow-gold/20">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Dispatch via WhatsApp (+256 777990562)</span>
+                            </button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-surface border-t border-gold/20 py-16 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <a href="#home" class="flex flex-col">
+                        <span class="font-heading text-2xl font-bold tracking-[0.25em] text-gold">REN</span>
+                        <span class="text-[0.6rem] font-medium tracking-[0.35em] text-gray-300 -mt-1">GORILLA EXPEDITIONS</span>
+                    </a>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Built around Respect, Explore, and Nature. Crafted for travelers seeking extraordinary wildlife discoveries in Uganda and across East Africa.
+                    </p>
+                </div>
+
+                <!-- Navigation Links -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-gold font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#home" class="hover:text-gold transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-gold transition-colors">About REN Philosophy</a></li>
+                        <li><a href="#expeditions" class="hover:text-gold transition-colors">Curated Expeditions</a></li>
+                        <li><a href="#wildlife" class="hover:text-gold transition-colors">Wildlife Showcase</a></li>
+                        <li><a href="#reserve" class="hover:text-gold transition-colors">Reserve Your Expedition</a></li>
+                    </ul>
+                </div>
+
+                <!-- Conservation Commitments -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-gold font-bold mb-4">Values & Principles</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><strong class="text-gray-200">R</strong> — Respect for Local Communities</li>
+                        <li><strong class="text-gray-200">E</strong> — Exploration of Untamed Landscapes</li>
+                        <li><strong class="text-gray-200">N</strong> — Protection of Nature & Species</li>
+                        <li>Gorilla Permit Concierge Assurance</li>
+                    </ul>
+                </div>
+
+                <!-- Direct WhatsApp Link -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-gold font-bold mb-4">Direct Contact</h4>
+                    <p class="text-xs text-gray-300 mb-3">Instant booking assistance available 24/7 via WhatsApp desk:</p>
+                    <a href="https://wa.me/256777990562" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 text-gold font-bold text-sm hover:underline">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>+256 777990562</span>
+                    </a>
+                    <p class="text-[11px] text-gray-500 mt-2">Kampala & Bwindi Forest Sanctuary, Uganda</p>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; <span id="year"></span> REN GORILLA EXPEDITIONS. All Rights Reserved.</p>
+                <p class="mt-2 sm:mt-0">Designed for Luxury Safari Excellence & Conservation Support</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Floating Accessibility-Compliant WhatsApp Button -->
-    <a href="<?php echo $whatsapp_link; ?>" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
-        <svg viewBox="0 0 32 32" class="whatsapp-icon" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M16 2a13 13 0 0 0-11 20L3 29l7-2a13 13 0 1 0 6-25zm0 24a11 11 0 0 1-5.5-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4A11 11 0 1 1 16 26zm6-8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2s-.8 1.1-1 1.3c-.2.2-.4.2-.7 0a9 9 0 0 1-2.6-1.6 10 10 0 0 1-1.8-2.3c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.5 0-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.3 1.5.6 2 .7 1 .3 1.8.3 2.5.2.8-.1 2.4-1 2.7-2 .3-1 .3-1.8.2-1.9-.1-.1-.3-.2-.6-.4z"/>
-        </svg>
-        <span class="float-text">Chat with Us</span>
-    </a>
+    <div class="fixed bottom-6 right-6 z-50">
+        <!-- Expanded Quick Popup -->
+        <div id="whatsapp-popup" class="hidden mb-4 w-72 glass-panel gold-border-glow rounded-sm p-4 shadow-2xl transition-all">
+            <div class="flex items-center justify-between border-b border-gold/20 pb-3 mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-xs font-bold text-white uppercase tracking-wider">REN Concierge Desk</span>
+                </div>
+                <button type="button" onclick="toggleWhatsAppPopup()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-xs text-gray-300 mb-4 leading-relaxed">
+                Hello! Planning a gorilla trekking safari or luxury savanna expedition? Let's chat live on WhatsApp.
+            </p>
+            <a href="https://wa.me/256777990562?text=Hello!%20I%20would%20like%20to%20speak%20with%20a%20REN%20Expedition%20Concierge." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="block text-center py-2.5 bg-green-600 hover:bg-green-500 text-white font-bold text-xs uppercase tracking-widest rounded-sm transition-colors">
+                Open WhatsApp Chat
+            </a>
+        </div>
+
+        <!-- Floating Badge Button -->
+        <button type="button" 
+                onclick="toggleWhatsAppPopup()" 
+                aria-label="Open WhatsApp Quick Contact"
+                class="whatsapp-pulse flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-400 text-white rounded-full shadow-2xl transition-transform hover:scale-105 focus:outline-none">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+        </button>
+    </div>
+
+    <div id="expedition-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-panel gold-border-glow max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-sm p-6 sm:p-8 relative">
+            <button type="button" 
+                    onclick="closeExpeditionModal()" 
+                    class="absolute top-4 right-4 text-gray-400 hover:text-gold text-2xl p-2 focus:outline-none"
+                    aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div id="modal-content-body">
+                <!-- Dynamic Content Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg" onclick="closeGalleryModal()">
+        <div class="relative max-w-5xl w-full text-center" onclick="event.stopPropagation()">
+            <button type="button" 
+                    onclick="closeGalleryModal()" 
+                    class="absolute -top-12 right-0 text-gold hover:text-white text-3xl font-bold p-2 focus:outline-none"
+                    aria-label="Close Lightbox">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="" class="max-h-[80vh] mx-auto rounded-sm border border-gold/30 shadow-2xl object-contain">
+            <p id="lightbox-caption" class="text-gold font-heading text-sm uppercase tracking-widest mt-4"></p>
+        </div>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-xmark');
+        });
+
+        // Close mobile menu on click link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-xmark');
+            });
+        });
+
+        // Expedition Filter Buttons Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const expeditionCards = document.querySelectorAll('.expedition-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-gold', 'text-obsidian', 'font-bold');
+                    b.classList.add('glass-panel', 'text-gray-300');
+                });
+                btn.classList.add('bg-gold', 'text-obsidian', 'font-bold');
+                btn.classList.remove('glass-panel', 'text-gray-300');
+
+                const filter = btn.getAttribute('data-filter');
+
+                expeditionCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Floating WhatsApp Popup Toggle
+        function toggleWhatsAppPopup() {
+            const popup = document.getElementById('whatsapp-popup');
+            popup.classList.toggle('hidden');
+        }
+
+        // Detailed Expedition Data Store
+        const expeditionData = {
+            'gorilla-odyssey': {
+                title: "Gorilla Habituation Luxury Odyssey",
+                subtitle: "Bwindi Impenetrable Forest | 5 Days / 4 Nights",
+                image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85",
+                description: "Unlike standard 1-hour gorilla tracking, this exclusive expedition grants 4 full hours alongside researchers and trackers during gorilla habituation in Bwindi's southern sector.",
+                highlights: [
+                    "Private domestic chartered aircraft directly into Kihihi/Kisoro airstrip",
+                    "4 hours face-to-face with wild gorilla families during habituation",
+                    "5-Star luxury sanctuary accommodation with personal butler",
+                    "Guided Batwa community cultural walk & ancient forest heritage experience"
+                ],
+                waText: "Hello! I am interested in booking the 5-Day Gorilla Habituation Luxury Odyssey."
+            },
+            'lion-safari': {
+                title: "Tree-Climbing Lions & Savanna Predators",
+                subtitle: "Queen Elizabeth NP & Ishasha Sector | 7 Days / 6 Nights",
+                image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1200&q=85",
+                description: "Delve deep into Queen Elizabeth National Park. Witness rare tree-climbing lions resting in colossal fig trees and glide down the Kazinga Channel on a private luxury pontoon.",
+                highlights: [
+                    "Tree-climbing lion tracking in Ishasha wilderness",
+                    "Private VIP lounge deck cruise along Kazinga Channel",
+                    "Chimpanzee trekking in Kyambura Gorge underground rainforest",
+                    "Night game drives with thermal optics and predator research trackers"
+                ],
+                waText: "Hello! I am inquiring about the 7-Day Tree-Climbing Lions & Savanna Safari."
+            },
+            'elephant-safari': {
+                title: "Mighty Elephants & Nile Cascades",
+                subtitle: "Murchison Falls National Park | 6 Days / 5 Nights",
+                image: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1200&q=85",
+                description: "Experience the sheer power of the Nile squeezing through a 7-meter gorge alongside thousands of wild African elephants migrating across savanna corridors.",
+                highlights: [
+                    "Helicopter flyover over the apex of Murchison Falls",
+                    "Private river charter to the base of the roaring Nile cascades",
+                    "On-foot Ziwa Rhino Sanctuary tracking experience",
+                    "Sunset luxury champagne sundowners on the Nile delta"
+                ],
+                waText: "Hello! I want to request details for the 6-Day Mighty Elephants & Nile Safari."
+            },
+            'grand-circuit': {
+                title: "The Great African Ultra-Luxury Circuit",
+                subtitle: "12 Days / 11 Nights | Flagship Uganda Masterpiece",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85",
+                description: "The ultimate East African journey combining every iconic ecosystem: Bwindi Gorillas, Kibale Chimpanzees, Queen Elizabeth Lions, and Murchison Elephants connected by luxury bush flights.",
+                highlights: [
+                    "All domestic flight transfers in luxury private turboprops",
+                    "Gorilla habituation permit + Chimpanzee trekking permits",
+                    "Private 4x4 Land Cruiser with master wildlife guide",
+                    "All-inclusive stays at East Africa's top eco-sanctuary lodges"
+                ],
+                waText: "Hello! I wish to reserve the flagship 12-Day Great African Ultra-Luxury Circuit."
+            }
+        };
+
+        // Open Expedition Itinerary Modal
+        function openExpeditionModal(key) {
+            const data = expeditionData[key];
+            if (!data) return;
+
+            const modalBody = document.getElementById('modal-content-body');
+            const waLink = `https://wa.me/256777990562?text=${encodeURIComponent(data.waText)}`;
+
+            modalBody.innerHTML = `
+                <div class="relative h-64 rounded-sm overflow-hidden mb-6 border border-gold/30">
+                    <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-xs uppercase tracking-widest text-gold font-bold">${data.subtitle}</span>
+                        <h3 class="text-2xl font-bold text-white font-heading">${data.title}</h3>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">${data.description}</p>
+
+                <div class="mb-6 bg-surface p-5 rounded-sm border border-gold/20">
+                    <h4 class="text-gold font-heading text-xs uppercase tracking-widest mb-3 font-bold">Key Included Luxuries:</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        ${data.highlights.map(h => `<li class="flex items-center gap-2"><i class="fa-solid fa-star text-gold text-[10px]"></i> ${h}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                    <a href="${waLink}" target="_blank" rel="noopener noreferrer" 
+                       class="flex-1 py-3.5 bg-gold text-obsidian font-bold text-xs uppercase tracking-widest text-center hover:bg-gold-light transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Reserve on WhatsApp (+256 777990562)</span>
+                    </a>
+                    <a href="#reserve" onclick="closeExpeditionModal()" 
+                       class="py-3.5 px-6 glass-panel border border-gold/40 text-gold font-bold text-xs uppercase tracking-widest text-center hover:text-white transition-colors">
+                        Custom Inquiry Form
+                    </a>
+                </div>
+            `;
+
+            document.getElementById('expedition-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeExpeditionModal() {
+            document.getElementById('expedition-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Lightbox Gallery Functions
+        function openGalleryModal(src, caption) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-caption').textContent = caption;
+            document.getElementById('gallery-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('gallery-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form Submit Handler -> Redirects dynamically formatted query to WhatsApp!
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('guest-name').value;
+            const email = document.getElementById('guest-email').value;
+            const expedition = document.getElementById('expedition-select').value;
+            const guests = document.getElementById('guest-count').value;
+            const date = document.getElementById('travel-date').value || 'To Be Confirmed';
+            const lodging = document.getElementById('luxury-level').value;
+            const notes = document.getElementById('special-requests').value || 'None';
+
+            const message = `*REN GORILLA EXPEDITIONS INQUIRY*\n` +
+                            `------------------------------------\n` +
+                            `*Guest Name:* ${name}\n` +
+                            `*Email:* ${email}\n` +
+                            `*Expedition:* ${expedition}\n` +
+                            `*Group Size:* ${guests}\n` +
+                            `*Preferred Date:* ${date}\n` +
+                            `*Accommodation:* ${lodging}\n` +
+                            `*Notes:* ${notes}\n` +
+                            `------------------------------------\n` +
+                            `Hello REN Concierge, I would like to check availability for this trip.`;
+
+            const encodedWaUrl = `https://wa.me/256777990562?text=${encodeURIComponent(message)}`;
+            
+            // Open directly in WhatsApp
+            window.open(encodedWaUrl, '_blank');
+        }
+
+        // Live updating WhatsApp preview text
+        const formInputs = ['guest-name', 'expedition-select', 'guest-count'];
+        formInputs.forEach(id => {
+            const el = document.getElementById(id);
+            if(el) {
+                el.addEventListener('input', updateWaPreview);
+            }
+        });
+
+        function updateWaPreview() {
+            const name = document.getElementById('guest-name').value || '[Guest Name]';
+            const exp = document.getElementById('expedition-select').value;
+            const previewText = `WhatsApp Message: "Hello REN! Inquiry for ${name} regarding ${exp}..."`;
+            document.getElementById('whatsapp-preview-text').textContent = previewText;
+        }
+
+        // Close Modals on ESC Key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeExpeditionModal();
+                closeGalleryModal();
+            }
+        });
+    </script>
 </body>
 </html>
-/* ==========================================================================
-   REN GORILLA EXPEDITIONS - Accessible Luxury Styling
-   ========================================================================== */
-
-:root {
-    --color-bg-dark: #0d110e;
-    --color-surface: #161c18;
-    --color-surface-light: #212924;
-    --color-gold-accent: #d4af37;
-    --color-gold-hover: #f3e5ab;
-    --color-text-light: #f5f5f7;
-    --color-text-muted: #c5c8c6;
-    --color-focus: #268bd2;
-    --font-heading: 'Cinzel', serif;
-    --font-body: 'Montserrat', sans-serif;
-}
-
-/* Accessibility Core */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-light);
-    font-family: var(--font-body);
-    line-height: 1.7;
-    font-size: 1rem;
-}
-
-a {
-    color: var(--color-gold-accent);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover, a:focus {
-    color: var(--color-gold-hover);
-}
-
-a:focus-visible, button:focus-visible {
-    outline: 3px solid var(--color-focus);
-    outline-offset: 4px;
-}
-
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 10px;
-    background: var(--color-gold-accent);
-    color: #000;
-    padding: 8px 16px;
-    z-index: 1000;
-    font-weight: 600;
-}
-
-.skip-link:focus {
-    top: 10px;
-}
-
-/* Header & Navigation */
-.site-header {
-    background-color: rgba(13, 17, 14, 0.95);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(8px);
-}
-
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.brand-logo {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo-ren {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--color-gold-accent);
-    line-height: 1;
-}
-
-.logo-sub {
-    font-size: 0.65rem;
-    letter-spacing: 3px;
-    color: var(--color-text-light);
-    margin-top: 4px;
-}
-
-.main-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.main-nav a {
-    color: var(--color-text-light);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 400;
-}
-
-.main-nav a.active, .main-nav a:hover {
-    color: var(--color-gold-accent);
-    border-bottom: 2px solid var(--color-gold-accent);
-    padding-bottom: 4px;
-}
-
-.btn-whatsapp-header {
-    border: 1px solid var(--color-gold-accent);
-    color: var(--color-gold-accent);
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 2px;
-}
-
-.btn-whatsapp-header:hover {
-    background-color: var(--color-gold-accent);
-    color: var(--color-bg-dark);
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    height: 80vh;
-    min-height: 500px;
-    background: linear-gradient(rgba(13, 17, 14, 0.4), rgba(13, 17, 14, 0.8)), 
-                url('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 1.5rem;
-}
-
-.hero-content {
-    max-width: 900px;
-}
-
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: 3.2rem;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-    color: #ffffff;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    color: var(--color-text-muted);
-    margin-bottom: 2rem;
-    font-weight: 300;
-}
-
-/* Buttons */
-.btn-gold {
-    display: inline-block;
-    background-color: var(--color-gold-accent);
-    color: var(--color-bg-dark);
-    padding: 0.9rem 2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 2px;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-gold:hover {
-    background-color: var(--color-gold-hover);
-    color: var(--color-bg-dark);
-}
-
-/* Layout Modules */
-.section {
-    padding: 5rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    text-align: center;
-    color: var(--color-gold-accent);
-    margin-bottom: 1rem;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--color-text-muted);
-    margin-bottom: 3rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* REN Values Grid */
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.value-card {
-    background-color: var(--color-surface);
-    padding: 2.5rem 2rem;
-    border-left: 3px solid var(--color-gold-accent);
-    border-radius: 2px;
-}
-
-.value-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--color-gold-accent);
-    margin-bottom: 1rem;
-}
-
-/* Visual Gallery Cards */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.expedition-card {
-    background-color: var(--color-surface);
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.expedition-card img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    display: block;
-}
-
-.expedition-info {
-    padding: 1.8rem;
-}
-
-.expedition-info h3 {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    color: #ffffff;
-}
-
-/* Contact Page Form */
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--color-text-light);
-    font-size: 0.9rem;
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: var(--color-surface-light);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    color: #ffffff;
-    border-radius: 2px;
-    font-family: var(--font-body);
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    outline: 2px solid var(--color-gold-accent);
-}
-
-/* Footer */
-.site-footer {
-    background-color: #080a08;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 4rem 2rem 2rem 2rem;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2.5rem;
-}
-
-.footer-links h2, .footer-contact h2 {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    color: var(--color-gold-accent);
-    margin-bottom: 1.2rem;
-}
-
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 0.6rem;
-}
-
-.footer-phone {
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.footer-bottom {
-    max-width: 1200px;
-    margin: 3rem auto 0 auto;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-}
-
-/* Floating WhatsApp Button */
-.whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25D366;
-    color: #ffffff;
-    padding: 12px 20px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    z-index: 1000;
-    font-weight: 600;
-}
-
-.whatsapp-float:hover {
-    background-color: #20ba5a;
-    color: #ffffff;
-}
-
-.whatsapp-icon {
-    width: 24px;
-    height: 24px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .main-nav ul {
-        gap: 1rem;
-    }
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-}
-<?php include('header.php'); ?>
-
-<section class="hero" aria-label="Introduction Image">
-    <div class="hero-content">
-        <h1>REN GORILLA EXPEDITIONS</h1>
-        <p>Purposeful Journeys | Rare Wildlife Encounters | Uncompromising Luxury</p>
-        <a href="<?php echo $whatsapp_link; ?>" class="btn-gold" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
-    </div>
-</section>
-
-<section class="section">
-    <h2 class="section-title">The REN Brand Identity</h2>
-    <p class="section-subtitle">Defining luxury safari travel through core values that safeguard Africa’s rarest ecosystems.</p>
-    
-    <div class="values-grid">
-        <article class="value-card">
-            <h3>R — Respect</h3>
-            <p>We respect the pristine places and cultures we encounter, partnering with indigenous communities and strictly supporting sustainable conservation initiatives.</p>
-        </article>
-        
-        <article class="value-card">
-            <h3>E — Explore</h3>
-            <p>We craft tailored journeys into extraordinary, untouched landscapes—taking you beyond standard travel into deeply memorable discoveries.</p>
-        </article>
-        
-        <article class="value-card">
-            <h3>N — Nature</h3>
-            <p>We protect the natural world that makes every expedition possible, maintaining low-impact, eco-luxury practices across all wilderness safaris.</p>
-        </article>
-    </div>
-</section>
-
-<section class="section" style="background-color: var(--color-surface);">
-    <h2 class="section-title">Icons of the African Wilderness</h2>
-    <p class="section-subtitle">Experience curated encounters with world-renowned species in their natural habitats.</p>
-    
-    <div class="gallery-grid">
-        <article class="expedition-card">
-            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=800&q=80" alt="Majestic male lion resting on the African savanna">
-            <div class="expedition-info">
-                <h3>Savanna Predators</h3>
-                <p>Private game drives tracking tree-climbing lions and leopards across Queen Elizabeth and Murchison Falls National Parks.</p>
-            </div>
-        </article>
-
-        <article class="expedition-card">
-            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80" alt="Mountain gorilla in the dense forest of Bwindi Impenetrable National Park">
-            <div class="expedition-info">
-                <h3>Mountain Gorilla Trekking</h3>
-                <p>Exclusive gorilla habituation and tracking experiences in Uganda's ancient Bwindi Impenetrable Forest.</p>
-            </div>
-        </article>
-
-        <article class="expedition-card">
-            <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80" alt="African elephant herd moving together at sunset">
-            <div class="expedition-info">
-                <h3>Gentle Giants</h3>
-                <p>Guided, immersive encounters with wild African elephant herds along the Kazinga Channel and savanna corridors.</p>
-            </div>
-        </article>
-    </div>
-</section>
-
-<?php include('footer.php'); ?>
-<?php include('header.php'); ?>
-
-<section class="section">
-    <h2 class="section-title">Our Philosophy & Heritage</h2>
-    <p class="section-subtitle">Understanding the true ethos behind REN Gorilla Expeditions.</p>
-    
-    <div style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.9;">
-        <p style="margin-bottom: 1.5rem;">
-            <strong>REN</strong> is the distinctive identity at the heart of our brand. For our clients and conservation partners, REN represents three non-negotiable principles: <strong>Respect, Explore, and Nature.</strong>
-        </p>
-        <p style="margin-bottom: 1.5rem;">
-            These core ideas provide a simple but powerful framework: to respect the places and native communities we encounter, to explore the extraordinary landscapes and wildlife of Africa, and to protect the natural world that makes every single expedition possible.
-        </p>
-        <p style="margin-bottom: 1.5rem;">
-            <strong>Gorilla</strong> represents our company's deep, ancestral connection to Uganda’s iconic mountain-gorilla experience and the broader world of wildlife conservation.
-        </p>
-        <p style="margin-bottom: 1.5rem;">
-            Finally, <strong>Expeditions</strong> communicates something far deeper than ordinary travel. It signals purposeful, bespoke journeys, immersive discovery, high adventure, and meticulously planned luxury experiences.
-        </p>
-    </div>
-</section>
-
-<?php include('footer.php'); ?>
-<?php include('header.php'); ?>
-
-<section class="section">
-    <h2 class="section-title">Curated Expeditions</h2>
-    <p class="section-subtitle">Luxury itineraries tailored to offer intimate, respectful encounters with wild Africa.</p>
-
-    <div class="gallery-grid">
-        <article class="expedition-card">
-            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80" alt="Mountain Gorilla Trekking Experience">
-            <div class="expedition-info">
-                <h3>Ultimate Gorilla Trekking</h3>
-                <p>Fly directly into Bwindi. Enjoy private luxury eco-lodge stays, custom permits, and personal trackers.</p>
-                <br>
-                <a href="<?php echo $whatsapp_link; ?>&text=Inquiry%20about%20Gorilla%20Trekking" class="btn-gold" target="_blank" rel="noopener noreferrer">Reserve via WhatsApp</a>
-            </div>
-        </article>
-
-        <article class="expedition-card">
-            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=800&q=80" alt="Savanna Lion Safari">
-            <div class="expedition-info">
-                <h3>Big Cats & Savanna Safari</h3>
-                <p>Private luxury game drives through Queen Elizabeth National Park tracking tree-climbing lions and leopards.</p>
-                <br>
-                <a href="<?php echo $whatsapp_link; ?>&text=Inquiry%20about%20Big%20Cats%20Safari" class="btn-gold" target="_blank" rel="noopener noreferrer">Reserve via WhatsApp</a>
-            </div>
-        </article>
-
-        <article class="expedition-card">
-            <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80" alt="Elephant Herd Migration">
-            <div class="expedition-info">
-                <h3>The Great Wildlife Circuit</h3>
-                <p>A comprehensive 10-day luxury journey connecting gorillas, chimpanzees, lions, and vast elephant herds.</p>
-                <br>
-                <a href="<?php echo $whatsapp_link; ?>&text=Inquiry%20about%20Great%20Wildlife%20Circuit" class="btn-gold" target="_blank" rel="noopener noreferrer">Reserve via WhatsApp</a>
-            </div>
-        </article>
-    </div>
-</section>
-
-<?php include('footer.php'); ?>
-<?php include('header.php'); ?>
-
-<section class="section">
-    <h2 class="section-title">Begin Your Journey</h2>
-    <p class="section-subtitle">Our team is ready to design your custom African safari experience.</p>
-
-    <div class="contact-container">
-        <div>
-            <h3 style="color: var(--color-gold-accent); font-family: var(--font-heading); margin-bottom: 1rem;">Direct Reservation Line</h3>
-            <p style="margin-bottom: 1.5rem;">Speak directly with our safari specialists via WhatsApp for instant assistance and permit checks.</p>
-            
-            <a href="<?php echo $whatsapp_link; ?>" class="btn-gold" target="_blank" rel="noopener noreferrer" style="display: block; text-align: center; margin-bottom: 2rem;">Start WhatsApp Chat (+256 777990562)</a>
-
-            <h3 style="color: var(--color-gold-accent); font-family: var(--font-heading); margin-bottom: 0.5rem;">Headquarters</h3>
-            <p>Kampala, Uganda<br>East Africa</p>
-        </div>
-
-        <div>
-            <form action="#" method="post" aria-label="Contact Form">
-                <div class="form-group">
-                    <label for="fullname">Full Name *</label>
-                    <input type="text" id="fullname" name="fullname" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="expedition">Expedition of Interest</label>
-                    <input type="text" id="expedition" name="expedition" placeholder="e.g. Gorilla Trekking, Big Cats">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message / Travel Dates *</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn-gold" style="width:100%;">Submit Inquiry</button>
-            </form>
-        </div>
-    </div>
-</section>
-
-<?php include('footer.php'); ?>
